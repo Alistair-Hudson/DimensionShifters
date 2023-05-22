@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 4303358388026314396, guid: 2c49ce646a55d914196a278eded93e62, type: 3}
   _weaponAnimations: {fileID: 22100000, guid: d2c94c15a32739d478cd0c65d7f41525, type: 2}
+  _weaponDamage: 1
+  _isMelee: 0
+  _projectilePrefab: {fileID: 2998493847199377304, guid: 925094f2b269120498c22304c3299eab, type: 3}

@@ -94,7 +94,7 @@ namespace DimensionShifters.Enemies
         public void Shoot()
         {
             _canAttackAgain = true;
-            _weapon.FireWeapon();
+            _weapon.FireWeapon(_rightHand);
         }
     }
 }

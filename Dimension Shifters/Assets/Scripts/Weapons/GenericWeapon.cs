@@ -28,6 +28,8 @@ namespace DimensionShifters.Weapons
         private int _weaponDamage = 1;
         [SerializeField]
         private bool _isMelee = false;
+        [SerializeField]
+        private Projectile _projectilePrefab = null;
 
         public void Setup(Transform spawnPoint, Animator animator)
         {
@@ -43,9 +45,10 @@ namespace DimensionShifters.Weapons
             }
         }
 
-        public void FireWeapon()
+        public void FireWeapon(Transform spawnPoint)
         {
-
+            var newProjectile = Instantiate(_projectilePrefab, spawnPoint.position, Quaternion.identity);
+            newProjectile.Damage = _weaponDamage;
         }
     }
 }

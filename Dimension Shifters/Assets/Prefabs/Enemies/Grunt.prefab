@@ -116,11 +116,15 @@ PrefabInstance:
     - target: {fileID: -202856689940852058, guid: e7d63f3c71012cb49ac7e800b1b962ea, type: 3}
       propertyPath: _weapon
       value: 
-      objectReference: {fileID: 11400000, guid: d146d9be95ef42a4681ebcd0b9d9d509, type: 2}
+      objectReference: {fileID: 11400000, guid: 3b694f1d166f00f49bab4f8b698eb9c9, type: 2}
     - target: {fileID: -202856689940852058, guid: e7d63f3c71012cb49ac7e800b1b962ea, type: 3}
       propertyPath: _rightHand
       value: 
       objectReference: {fileID: 5248693906618434487}
+    - target: {fileID: -202856689940852058, guid: e7d63f3c71012cb49ac7e800b1b962ea, type: 3}
+      propertyPath: _attackRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1423891950547559288, guid: e7d63f3c71012cb49ac7e800b1b962ea, type: 3}
       propertyPath: m_RootOrder
       value: 0
