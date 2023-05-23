@@ -12,7 +12,8 @@ namespace DimensionShifters.UI
         [SerializeField]
         private Text _scoreDisplay = null;
 
-        private int _score = 0;
+        private static int _score = 0;
+        public static int Score { get => _score; }
 
         private void Awake()
         {

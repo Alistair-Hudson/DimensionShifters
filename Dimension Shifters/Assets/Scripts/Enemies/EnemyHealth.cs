@@ -23,6 +23,7 @@ namespace DimensionShifters.Enemies
             {
                 GetComponent<Animator>().SetTrigger("Death");
                 OnEnemyDeath.Invoke(_pointsValue);
+                GetComponent<Collider>().enabled = false;
                 Destroy(gameObject, _despawnDelay);
             }
         }

@@ -58,7 +58,7 @@ namespace DimensionShifters.Enemies
         {
             _canAttackAgain = false;
             Debug.Log("Attacking Player");
-            //transform.LookAt(_player.transform);
+            transform.LookAt(_player.transform);
             _animator.SetTrigger("Attack");
         }
 
