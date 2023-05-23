@@ -1,24 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DimensionShifters.Player
 {
     public class PlayerHealth : MonoBehaviour
     {
         [SerializeField]
-        private int _baseHealth = 100;
+        private float _baseHealth = 100;
 
-        private int _health = 100;
+        private float _health = 100;
+
+        public static UnityEvent<float> OnPlayerHealthChange = new UnityEvent<float>();
 
         private void Awake()
         {
             _health = _baseHealth;
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(float damage)
         {
             _health -= damage;
+            OnPlayerHealthChange.Invoke(_health / _baseHealth);
             if (_health <= 0)
             {
                 Debug.Log("GAME OVER");

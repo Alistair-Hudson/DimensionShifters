@@ -14,7 +14,7 @@ namespace DimensionShifters.Enemies
         [SerializeField]
         private float _despawnDelay = 1f;
 
-        public static UnityAction<int> OnEnemyDeath; 
+        public static UnityEvent<int> OnEnemyDeath = new UnityEvent<int>(); 
 
         public void TakeDamage(int damage)
         {
@@ -22,7 +22,7 @@ namespace DimensionShifters.Enemies
             if (_health <= 0)
             {
                 GetComponent<Animator>().SetTrigger("Death");
-                OnEnemyDeath(_pointsValue);
+                OnEnemyDeath.Invoke(_pointsValue);
                 Destroy(gameObject, _despawnDelay);
             }
         }
