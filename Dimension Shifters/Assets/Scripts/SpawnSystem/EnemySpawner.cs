@@ -16,6 +16,8 @@ namespace DimensionShifters.SpawnSystem
         }
 
         [SerializeField]
+        private GameObject _warpInPrefab = null;
+        [SerializeField]
         private List<EnemyData> _enemyList = new List<EnemyData>();
 
         private Dictionary<int, List<EnemyAI>> _enemyDict = new Dictionary<int, List<EnemyAI>>();
@@ -52,10 +54,27 @@ namespace DimensionShifters.SpawnSystem
                     enemySeletionList = max;
                 }
                 EnemyAI enemyPrefab = _enemyDict[enemySeletionList][Random.Range(0, _enemyDict[enemySeletionList].Count)];
-                EnemyAI newEnemy = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
-                newEnemy.transform.parent = transform;
+                yield return Spawn(enemyPrefab, spawnPoint);
                 yield return new WaitForSeconds(5f);
             }
+        }
+
+        private IEnumerator Spawn(EnemyAI enemyPrefab, Vector3 spawnPoint)
+        {
+            var newWarp = Instantiate(_warpInPrefab, spawnPoint, Quaternion.identity);
+            var animationCurve = AnimationCurve.EaseInOut(0, 0, 1, 2);
+            float time = 0;
+            while(time < 1)
+            {
+                var t = animationCurve.Evaluate(time);
+                newWarp.transform.position = new Vector3(newWarp.transform.position.x, t, newWarp.transform.position.z);
+                yield return null;
+                time += Time.deltaTime;
+            }
+                EnemyAI newEnemy = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+                newEnemy.transform.parent = transform;
+            yield return null;
+            Destroy(newWarp.gameObject);
         }
     }
 }

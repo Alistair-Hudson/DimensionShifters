@@ -28,5 +28,11 @@ namespace DimensionShifters.Player
                 Debug.Log("GAME OVER");
             }
         }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            Debug.Log("hit by particle");
+            TakeDamage(1);
+        }
     }
 }

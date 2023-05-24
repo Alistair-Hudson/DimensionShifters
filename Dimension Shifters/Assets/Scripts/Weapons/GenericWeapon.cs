@@ -30,6 +30,10 @@ namespace DimensionShifters.Weapons
         private bool _isMelee = false;
         [SerializeField]
         private Projectile _projectilePrefab = null;
+        [SerializeField]
+        private int _firingRate = 1;
+
+        private ParticleSystem _particleSystem = null;
 
         public void Setup(Transform spawnPoint, Animator animator)
         {
@@ -43,12 +47,25 @@ namespace DimensionShifters.Weapons
             {
                 newWeapon.AddComponent<MeleeWeapon>().Damage = _weaponDamage;
             }
+            else if (!_projectilePrefab)
+            {
+                _particleSystem = newWeapon.GetComponentInChildren<ParticleSystem>();
+                var em = _particleSystem.emission;
+                em.rateOverTime = _firingRate;
+            }
         }
 
         public void FireWeapon(Transform spawnPoint)
         {
-            var newProjectile = Instantiate(_projectilePrefab, spawnPoint.position, Quaternion.identity);
-            newProjectile.Damage = _weaponDamage;
+            if (_projectilePrefab)
+            {
+                var newProjectile = Instantiate(_projectilePrefab, spawnPoint.position, Quaternion.identity);
+                newProjectile.Damage = _weaponDamage;
+            }
+            else
+            {
+                _particleSystem.Emit(_firingRate);
+            }
         }
     }
 }
