@@ -10,7 +10,7 @@ namespace DimensionShifters.UI
     public class PlayerHealthDisplay : MonoBehaviour
     {
         [SerializeField]
-        private Slider _healthBar = null;
+        private Image _healthBar = null;
 
         private void Awake()
         {
@@ -20,7 +20,7 @@ namespace DimensionShifters.UI
         private void UpdateDisplay(float arg0)
         {
 
-            _healthBar.value = arg0;
+            _healthBar.fillAmount = arg0;
         }
     }
 }

@@ -37,21 +37,29 @@ namespace DimensionShifters.Weapons
 
         public void Setup(Transform spawnPoint, Animator animator)
         {
-            var newWeapon = Instantiate(_prefab, spawnPoint);
+            if (!_prefab)
+            {
+                _particleSystem = spawnPoint.GetComponentInChildren<ParticleSystem>();
+            }
+            else
+            {
+                var newWeapon = Instantiate(_prefab, spawnPoint);
+
+                if (_isMelee)
+                {
+                    newWeapon.AddComponent<MeleeWeapon>().Damage = _weaponDamage;
+                }
+                else if (!_projectilePrefab)
+                {
+                    _particleSystem = newWeapon.GetComponentInChildren<ParticleSystem>();
+                    var em = _particleSystem.emission;
+                    em.rateOverTime = _firingRate;
+                }
+            }
+            
             if (_weaponAnimations)
             {
                 animator.runtimeAnimatorController = _weaponAnimations;
-            }
-
-            if (_isMelee)
-            {
-                newWeapon.AddComponent<MeleeWeapon>().Damage = _weaponDamage;
-            }
-            else if (!_projectilePrefab)
-            {
-                _particleSystem = newWeapon.GetComponentInChildren<ParticleSystem>();
-                var em = _particleSystem.emission;
-                em.rateOverTime = _firingRate;
             }
         }
 

@@ -62,17 +62,18 @@ namespace DimensionShifters.SpawnSystem
         private IEnumerator Spawn(EnemyAI enemyPrefab, Vector3 spawnPoint)
         {
             var newWarp = Instantiate(_warpInPrefab, spawnPoint, Quaternion.identity);
-            var animationCurve = AnimationCurve.EaseInOut(0, 0, 1, 2);
-            float time = 0;
-            while(time < 1)
-            {
-                var t = animationCurve.Evaluate(time);
-                newWarp.transform.position = new Vector3(newWarp.transform.position.x, t, newWarp.transform.position.z);
-                yield return null;
-                time += Time.deltaTime;
-            }
-                EnemyAI newEnemy = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
-                newEnemy.transform.parent = transform;
+            yield return new WaitForSeconds(1);
+            //var animationCurve = AnimationCurve.EaseInOut(0, 0, 1, 2);
+            //float time = 0;
+            //while(time < 1)
+            //{
+            //    var t = animationCurve.Evaluate(time);
+            //    newWarp.transform.position = new Vector3(newWarp.transform.position.x, t, newWarp.transform.position.z);
+            //    yield return null;
+            //    time += Time.deltaTime;
+            //}
+            EnemyAI newEnemy = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+            newEnemy.transform.parent = transform;
             yield return null;
             Destroy(newWarp.gameObject);
         }

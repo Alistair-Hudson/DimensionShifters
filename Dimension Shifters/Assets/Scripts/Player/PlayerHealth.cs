@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace DimensionShifters.Player
 {
@@ -25,13 +26,12 @@ namespace DimensionShifters.Player
             OnPlayerHealthChange.Invoke(_health / _baseHealth);
             if (_health <= 0)
             {
-                Debug.Log("GAME OVER");
+                SceneManager.LoadScene(2);
             }
         }
 
         private void OnParticleCollision(GameObject other)
         {
-            Debug.Log("hit by particle");
             TakeDamage(1);
         }
     }
