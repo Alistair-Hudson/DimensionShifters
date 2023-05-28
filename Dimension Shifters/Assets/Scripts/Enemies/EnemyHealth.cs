@@ -1,3 +1,4 @@
+using DimensionShifters.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,16 @@ namespace DimensionShifters.Enemies
                 GetComponent<Collider>().enabled = false;
                 Destroy(gameObject, _despawnDelay);
             }
+        }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            if (!other.transform.parent.TryGetComponent<Camera>(out var player))
+            {
+                return;
+            }
+            Debug.Log($"{gameObject.name} has been hit by player");
+            TakeDamage(1);
         }
     }
 }

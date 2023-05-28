@@ -25,6 +25,9 @@ namespace DimensionShifters.Weapons
         [SerializeField]
         private AnimatorOverrideController _weaponAnimations = null;
         [SerializeField]
+        private AudioClip _sound = null;
+        public AudioClip Sound { get => _sound; }
+        [SerializeField]
         private int _weaponDamage = 1;
         [SerializeField]
         private bool _isMelee = false;

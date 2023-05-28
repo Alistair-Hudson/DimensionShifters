@@ -23,6 +23,7 @@ namespace DimensionShifters.Enemies
         private Camera _player = null;
         private Animator _animator = null;
         private NavMeshAgent _navMesh = null;
+        private AudioSource _audioSource = null;
 
         private bool _canAttackAgain = true;
 
@@ -33,6 +34,7 @@ namespace DimensionShifters.Enemies
             _navMesh = GetComponent<NavMeshAgent>();
             _navMesh.speed = _runningSpeed;
             _weapon.Setup(_rightHand, _animator);
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -93,8 +95,14 @@ namespace DimensionShifters.Enemies
 
         public void Shoot()
         {
-            _canAttackAgain = true;
             _weapon.FireWeapon(_rightHand);
+            _audioSource.PlayOneShot(_weapon.Sound);
+        }
+
+        public void ResetAttack()
+        {
+            _canAttackAgain = true;
+            
         }
     }
 }

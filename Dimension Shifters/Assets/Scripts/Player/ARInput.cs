@@ -12,8 +12,19 @@ namespace DimensionShifters.Player
         private Image _targetingImage = null;
         [SerializeField]
         private float _firingRate = 1;
+        [SerializeField]
+        private ParticleSystem _laserShot = null;
+        [SerializeField]
+        private AudioClip _laserSound = null;
+
+        private AudioSource _audioSource = null;
 
         private bool _canShoot = true;
+
+        private void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
 
         private void Update()
         {
@@ -37,14 +48,8 @@ namespace DimensionShifters.Player
         private void ShootRay()
         {
             _canShoot = false;
-            Ray ray = Camera.main.ScreenPointToRay(_targetingImage.transform.position);
-            if (Physics.Raycast(ray, out var hit))
-            {
-                if (hit.transform.TryGetComponent<Enemies.EnemyHealth>(out var enemyHealth))
-                {
-                    enemyHealth.TakeDamage(1);
-                }
-            }
+            _laserShot.Emit(1);
+            _audioSource.PlayOneShot(_laserSound);
         }
     }
 }

@@ -36,6 +36,7 @@ namespace DimensionShifters.SpawnSystem
 
         private IEnumerator Start()
         {
+            yield return new WaitForSeconds(1);
             while (true)
             {
                 int difficultyLevel = PlayerScoreDisplay.Score / 1000 + 2;
