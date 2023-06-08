@@ -399,12 +399,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 312613732277272048, guid: f45ac71999cf4044083d0f3a4a671299, type: 3}
       propertyPath: _enemyList.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 312613732277272048, guid: f45ac71999cf4044083d0f3a4a671299, type: 3}
       propertyPath: _enemyList.Array.data[0].Enemy
       value: 
-      objectReference: {fileID: 6798451864312943567, guid: aae81423ca61c234087b91e9836a71cc, type: 3}
+      objectReference: {fileID: 3263372039552232521, guid: 8ee37454c49d78c4ea174e4337d03f14, type: 3}
     - target: {fileID: 312613732277272048, guid: f45ac71999cf4044083d0f3a4a671299, type: 3}
       propertyPath: _enemyList.Array.data[1].Enemy
       value: 
