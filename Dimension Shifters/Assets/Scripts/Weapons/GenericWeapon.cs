@@ -50,7 +50,7 @@ namespace DimensionShifters.Weapons
 
                 if (_isMelee)
                 {
-                    newWeapon.AddComponent<MeleeWeapon>().Damage = _weaponDamage;
+                    newWeapon.GetComponentInChildren<Collider>().gameObject.AddComponent<MeleeWeapon>().Damage = _weaponDamage;
                 }
                 else if (!_projectilePrefab)
                 {
