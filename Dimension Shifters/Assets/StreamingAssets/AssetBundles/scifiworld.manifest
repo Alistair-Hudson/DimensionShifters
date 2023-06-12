@@ -1,0 +1,61 @@
+ManifestFileVersion: 0
+CRC: 1574476546
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5d5bc3bd58912b08d916b9987245a653
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4c12beaf2bfbe586a68a672bd21f2c67
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: b070427cce3eeb04486e9b3a6de29f80, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 55d2efd478b2f4147aa350dc3b77861f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e4c3c2c7a7d200e4abe7362e6d1476f7, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 195
+  Script: {instanceID: 0}
+- Class: 221
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Prefabs/Enemies/SciFiWorld/SwordGrunt.prefab
+Dependencies: []

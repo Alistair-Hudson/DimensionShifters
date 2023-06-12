@@ -78,5 +78,27 @@ namespace DimensionShifters.SpawnSystem
             yield return null;
             Destroy(newWarp.gameObject);
         }
+
+        IEnumerator LoadAsset(string assetBundleName, string objectNameToLoad)
+        {
+            string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "AssetBundles");
+            filePath = System.IO.Path.Combine(filePath, assetBundleName);
+
+            //Load "animals" AssetBundle
+            var assetBundleCreateRequest = AssetBundle.LoadFromFileAsync(filePath);
+            yield return assetBundleCreateRequest;
+
+            AssetBundle asseBundle = assetBundleCreateRequest.assetBundle;
+
+            //Load the "dog" Asset (Use Texture2D since it's a Texture. Use GameObject if prefab)
+            AssetBundleRequest asset = asseBundle.LoadAssetAsync<GameObject>(objectNameToLoad);
+            yield return asset;
+
+            //Retrieve the object (Use Texture2D since it's a Texture. Use GameObject if prefab)
+            GameObject loadedAsset = asset.asset as GameObject;
+
+            //Do something with the loaded loadedAsset  object (Load to RawImage for example) 
+            Instantiate(loadedAsset, Vector3.forward * 10, Quaternion.identity);
+        }
     }
 }
