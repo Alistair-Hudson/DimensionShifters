@@ -8,23 +8,16 @@ namespace DimensionShifters.SpawnSystem
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [System.Serializable]
-        public struct EnemyData
-        {
-            public int Level;
-            public EnemyAI Enemy;
-        }
-
         [SerializeField]
         private GameObject _warpInPrefab = null;
-        [SerializeField]
-        private List<EnemyData> _enemyList = new List<EnemyData>();
 
         private Dictionary<int, List<EnemyAI>> _enemyDict = new Dictionary<int, List<EnemyAI>>();
 
         private void Awake()
         {
-            foreach (var enemy in _enemyList)
+            WorldEnemyList enemyList = Resources.Load<WorldEnemyList>("WorldEnemyLists/ScifiWorld");
+
+            foreach (var enemy in enemyList.EnemyList)
             {
                 if (!_enemyDict.ContainsKey(enemy.Level))
                 {
@@ -64,6 +57,7 @@ namespace DimensionShifters.SpawnSystem
         {
             var newWarp = Instantiate(_warpInPrefab, spawnPoint, Quaternion.identity);
             yield return new WaitForSeconds(1);
+
             //var animationCurve = AnimationCurve.EaseInOut(0, 0, 1, 2);
             //float time = 0;
             //while(time < 1)
