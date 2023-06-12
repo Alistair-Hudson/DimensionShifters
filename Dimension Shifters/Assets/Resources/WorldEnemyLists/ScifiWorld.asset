@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b21c2f26df7a34eb2bdba1a7b535d3, type: 3}
   m_Name: ScifiWorld
   m_EditorClassIdentifier: 
-  _enemyList: []
+  _enemyList:
+  - Level: 1
+    Enemy: {fileID: 3263372039552232521, guid: 8ee37454c49d78c4ea174e4337d03f14, type: 3}
+  - Level: 3
+    Enemy: {fileID: 3263372039552232521, guid: 76ec0af0b4d49a4448898abb8205962f, type: 3}
