@@ -23,7 +23,7 @@ namespace DimensionShifters.SpawnSystem
             yield return new WaitForSeconds(1);
             while (true)
             {
-                int difficultyLevel = PlayerScoreDisplay.Score / 1000 + 2;
+                int difficultyLevel = PlayerScoreDisplay.Score / 100 + 2;
                 Vector3 spawnPoint = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
                 WorldEnemyList.EnemyData enemyData = _enemyList.SpawnEnemy(difficultyLevel);
                 yield return Spawn(enemyData, spawnPoint);
