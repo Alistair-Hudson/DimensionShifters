@@ -12,23 +12,28 @@ namespace DimensionShifters.Enemies
     {
         [SerializeField]
         private Transform _rightHand = null;
-        [SerializeField]
-        private GenericWeapon _weapon = null;
 
-        [SerializeField]
-        private float _attackRange = 2f;
-        [SerializeField]
-        private float _runningSpeed = 1f;
 
         private Camera _player = null;
         private Animator _animator = null;
         private NavMeshAgent _navMesh = null;
         private AudioSource _audioSource = null;
+        private GenericWeapon _weapon = null;
+
+        private float _attackRange = 2f;
+        private float _runningSpeed = 1f;
 
         private bool _canAttackAgain = true;
 
-        private void Awake()
+        public void Setup(WorldEnemyList.EnemyData enemyData)
         {
+            _weapon = enemyData.Weapon;
+            _attackRange = enemyData.AtackRange;
+            _runningSpeed = enemyData.MaxRunningSpeed;
+
+            EnemyHealth enemyHealth = GetComponent<EnemyHealth>();
+            enemyHealth.Setup(enemyData.EnemyHealth, enemyData.PointsValue);
+
             _player = Camera.main;
             _animator = GetComponent<Animator>();
             _navMesh = GetComponent<NavMeshAgent>();

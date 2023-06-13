@@ -14,10 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyList:
   - Level: 1
-    Enemy: {fileID: 3263372039552232521, guid: 8ee37454c49d78c4ea174e4337d03f14, type: 3}
+    EnemyBasePrefab: {fileID: 0}
+    Weapon: {fileID: 11400000, guid: 7943e9bdab87dad4590fa0ef34e42209, type: 2}
+    AtackRange: 0
+    MaxRunningSpeed: 0
+    EnemyHealth: 0
+    PointsValue: 0
   - Level: 3
-    Enemy: {fileID: 3263372039552232521, guid: 76ec0af0b4d49a4448898abb8205962f, type: 3}
+    EnemyBasePrefab: {fileID: 0}
+    Weapon: {fileID: 0}
+    AtackRange: 0
+    MaxRunningSpeed: 0
+    EnemyHealth: 0
+    PointsValue: 0
   - Level: 8
-    Enemy: {fileID: 3263372039552232521, guid: bf97311c0e8241242a975c7a35a64324, type: 3}
+    EnemyBasePrefab: {fileID: 0}
+    Weapon: {fileID: 0}
+    AtackRange: 0
+    MaxRunningSpeed: 0
+    EnemyHealth: 0
+    PointsValue: 0
   - Level: 5
-    Enemy: {fileID: 3263372039552232521, guid: f44254255a2a484499451bdef3860e52, type: 3}
+    EnemyBasePrefab: {fileID: 0}
+    Weapon: {fileID: 0}
+    AtackRange: 0
+    MaxRunningSpeed: 0
+    EnemyHealth: 0
+    PointsValue: 0
