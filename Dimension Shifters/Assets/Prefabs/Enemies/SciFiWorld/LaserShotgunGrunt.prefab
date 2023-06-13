@@ -115,12 +115,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3585482552630991315, guid: e7d63f3c71012cb49ac7e800b1b962ea, type: 3}
       propertyPath: _pointsValue
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -202856689940852058, guid: e7d63f3c71012cb49ac7e800b1b962ea, type: 3}
       propertyPath: _weapon
       value: 
-      objectReference: {fileID: 11400000, guid: a29dcf72f902e7c44835f98bc86e108e, type: 2}
+      objectReference: {fileID: 11400000, guid: a3101e47022359548addfc3c4c534c22, type: 2}
     - target: {fileID: -202856689940852058, guid: e7d63f3c71012cb49ac7e800b1b962ea, type: 3}
       propertyPath: _rightHand
       value: 
@@ -175,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1615644432263245592, guid: e7d63f3c71012cb49ac7e800b1b962ea, type: 3}
       propertyPath: m_Name
-      value: LaserPistolGrunt
+      value: LaserShotgunGrunt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
