@@ -44,8 +44,8 @@ PlayerSettings:
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
   defaultScreenHeight: 1080
-  defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 600
+  defaultScreenWidthWeb: 1920
+  defaultScreenHeightWeb: 1080
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 1
   m_SpriteBatchVertexThreshold: 300
@@ -129,15 +129,12 @@ PlayerSettings:
   stadiaTargetFramerate: 0
   vulkanNumSwapchainBuffers: 3
   vulkanEnableSetSRGBWrite: 0
-  vulkanEnablePreTransform: 1
+  vulkanEnablePreTransform: 0
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 1.3.0
-  preloadedAssets:
-  - {fileID: 11400000, guid: 516e19d2af4ac474087d789486ae9bd5, type: 2}
-  - {fileID: -967737749187769849, guid: 7ac5936e1a7d8a34d95913d4f449dc2c, type: 2}
-  - {fileID: 11400000, guid: 5f6a0e558a5411d439e6f82344f6ee4d, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -455,7 +452,9 @@ PlayerSettings:
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
-  m_TemplateCustomTags: {}
+  m_TemplateCustomTags:
+    DESCRIPTION: 
+    WEBXR_POLYFILL_CONFIG: 
   mobileMTRendering:
     Android: 1
     iPhone: 1
@@ -476,16 +475,8 @@ PlayerSettings:
     m_EncodingQuality: 1
   m_BuildTargetGroupLightmapSettings: []
   m_BuildTargetGroupLoadStoreDebugModeSettings: []
-  m_BuildTargetNormalMapEncoding:
-  - m_BuildTarget: Android
-    m_Encoding: 1
-  - m_BuildTarget: iPhone
-    m_Encoding: 1
-  - m_BuildTarget: tvOS
-    m_Encoding: 1
-  m_BuildTargetDefaultTextureCompressionFormat:
-  - m_BuildTarget: Android
-    m_Format: 3
+  m_BuildTargetNormalMapEncoding: []
+  m_BuildTargetDefaultTextureCompressionFormat: []
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
@@ -635,7 +626,7 @@ PlayerSettings:
   switchSocketInitializeEnabled: 1
   switchNetworkInterfaceManagerInitializeEnabled: 1
   switchPlayerConnectionEnabled: 1
-  switchUseNewStyleFilepaths: 0
+  switchUseNewStyleFilepaths: 1
   switchUseLegacyFmodPriorities: 0
   switchUseMicroSleepForYield: 1
   switchEnableRamDiskSupport: 0
@@ -729,7 +720,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Default
+  webGLTemplate: PROJECT:WebXRFullView2020
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 1
@@ -745,7 +736,8 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
+    : ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
+    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
     WebGL: ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
   additionalCompilerArguments: {}
   platformArchitecture: {}
@@ -754,6 +746,7 @@ PlayerSettings:
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   managedStrippingLevel:
+    Android: 1
     EmbeddedLinux: 1
     GameCoreScarlett: 1
     GameCoreXboxOne: 1
@@ -860,7 +853,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 2
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
   cloudProjectId: a3bb0e02-e1bf-4b04-a123-fb05c47515a0
   framebufferDepthMemorylessMode: 0
