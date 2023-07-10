@@ -17,6 +17,7 @@ namespace DimensionShifters.Player
 
         private void Awake()
         {
+            _baseHealth = PlayerAtributes.PlayerHealth;
             _health = _baseHealth;
         }
 

@@ -24,6 +24,7 @@ namespace DimensionShifters.Player
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
+            _firingRate = PlayerAtributes.PlayerFiringRate;
         }
 
         private void Update()
