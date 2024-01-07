@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b21c2f26df7a34eb2bdba1a7b535d3, type: 3}
+  m_Name: CyberAttackList
+  m_EditorClassIdentifier: 
+  _enemyList:
+  - Level: 1
+    EnemyBasePrefab: {fileID: 3263372039552232521, guid: 0f7435281f9a11c49849a5dc45571ea4, type: 3}
+    Weapon: {fileID: 11400000, guid: 7943e9bdab87dad4590fa0ef34e42209, type: 2}
+    AtackRange: 2
+    MaxRunningSpeed: 1
+    EnemyHealth: 3
+    PointsValue: 10
+  - Level: 3
+    EnemyBasePrefab: {fileID: 3263372039552232521, guid: 0f7435281f9a11c49849a5dc45571ea4, type: 3}
+    Weapon: {fileID: 11400000, guid: a29dcf72f902e7c44835f98bc86e108e, type: 2}
+    AtackRange: 5
+    MaxRunningSpeed: 1
+    EnemyHealth: 3
+    PointsValue: 15
+  - Level: 5
+    EnemyBasePrefab: {fileID: 3263372039552232521, guid: 0f7435281f9a11c49849a5dc45571ea4, type: 3}
+    Weapon: {fileID: 11400000, guid: a3101e47022359548addfc3c4c534c22, type: 2}
+    AtackRange: 3
+    MaxRunningSpeed: 1
+    EnemyHealth: 3
+    PointsValue: 30
+  - Level: 8
+    EnemyBasePrefab: {fileID: 3263372039552232521, guid: 0f7435281f9a11c49849a5dc45571ea4, type: 3}
+    Weapon: {fileID: 11400000, guid: 6ae8625801a382e4ebe261df7357106a, type: 2}
+    AtackRange: 6
+    MaxRunningSpeed: 1
+    EnemyHealth: 3
+    PointsValue: 50
