@@ -9,6 +9,7 @@ using Unity.Services.Core;
 using Unity.Services.Authentication;
 using Unity.Services.Leaderboards;
 using Newtonsoft.Json;
+using DimensionShifters.Player;
 
 namespace DimensionShifters.UI
 {
@@ -33,6 +34,8 @@ namespace DimensionShifters.UI
             _addToLeaderboardButton.onClick.AddListener(AddScoreToLeaderboard);
             _score = ScoreSaver.Score;
             _scoreText.text = $"Score: {_score}";
+            PlayerAtributes.PlayerCredits = _score / 500;
+            PlayerAtributes.SaveAtributes();
             Destroy(FindObjectOfType<ScoreSaver>().gameObject);
         }
 

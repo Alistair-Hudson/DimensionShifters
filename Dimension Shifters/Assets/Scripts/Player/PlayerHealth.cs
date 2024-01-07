@@ -27,7 +27,7 @@ namespace DimensionShifters.Player
             OnPlayerHealthChange.Invoke(_health / _baseHealth);
             if (_health <= 0)
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene("GameOverScene");
             }
         }
 
