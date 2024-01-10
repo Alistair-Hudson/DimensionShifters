@@ -12,6 +12,8 @@ namespace DimensionShifters.Enemies
     {
         [SerializeField]
         private Transform _rightHand = null;
+        [SerializeField]
+        private Transform _leftHand = null;
 
 
         private Camera _player = null;
@@ -39,6 +41,10 @@ namespace DimensionShifters.Enemies
             _navMesh = GetComponent<NavMeshAgent>();
             _navMesh.speed = _runningSpeed;
             _weapon.Setup(_rightHand, _animator);
+            if (_weapon.IsDualWeild)
+            {
+                _weapon.Setup(_leftHand, _animator);
+            }
             _audioSource = GetComponent<AudioSource>();
         }
 

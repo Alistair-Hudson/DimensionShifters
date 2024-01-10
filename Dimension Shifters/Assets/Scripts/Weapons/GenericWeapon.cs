@@ -36,13 +36,16 @@ namespace DimensionShifters.Weapons
         [SerializeField]
         private int _firingRate = 1;
 
-        private ParticleSystem _particleSystem = null;
+        [field: SerializeField]
+        public bool IsDualWeild { get; private set; } = false;
+
+        private List<ParticleSystem> _particleSystem = new List<ParticleSystem>();
 
         public void Setup(Transform spawnPoint, Animator animator)
         {
             if (!_prefab)
             {
-                _particleSystem = spawnPoint.GetComponentInChildren<ParticleSystem>();
+                _particleSystem.Add(spawnPoint.GetComponentInChildren<ParticleSystem>());
             }
             else
             {
@@ -54,8 +57,9 @@ namespace DimensionShifters.Weapons
                 }
                 else if (!_projectilePrefab)
                 {
-                    _particleSystem = newWeapon.GetComponentInChildren<ParticleSystem>();
-                    var em = _particleSystem.emission;
+                    ParticleSystem newParticleSystem = newWeapon.GetComponentInChildren<ParticleSystem>();
+                    _particleSystem.Add(newParticleSystem);
+                    var em = newParticleSystem.emission;
                     em.rateOverTime = _firingRate;
                 }
             }
@@ -75,7 +79,10 @@ namespace DimensionShifters.Weapons
             }
             else
             {
-                _particleSystem.Emit(_firingRate);
+                foreach (ParticleSystem particleSystem in _particleSystem)
+                {
+                    particleSystem.Emit(_firingRate);
+                }
             }
         }
     }
