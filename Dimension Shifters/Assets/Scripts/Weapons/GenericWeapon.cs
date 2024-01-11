@@ -1,88 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace DimensionShifters.Weapons
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Weapon")]
-    public class GenericWeapon : ScriptableObject
+    public class GenericWeapon : MonoBehaviour
     {
-        public class MeleeWeapon : MonoBehaviour
-        {
-            public int Damage = 1;
-
-            private void OnTriggerEnter(Collider other)
-            {
-                if (other.TryGetComponent<Player.PlayerHealth>(out var player))
-                {
-                    player.TakeDamage(Damage);
-                }
-            }
-        }
-
-        [SerializeField]
-        private GameObject _prefab;
-        [SerializeField]
-        private AnimatorOverrideController _weaponAnimations = null;
-        [SerializeField]
-        private AudioClip _sound = null;
-        public AudioClip Sound { get => _sound; }
-        [SerializeField]
-        private int _weaponDamage = 1;
-        [SerializeField]
-        private bool _isMelee = false;
-        [SerializeField]
         private Projectile _projectilePrefab = null;
-        [SerializeField]
-        private int _firingRate = 1;
+        private ProjectileSpawnPoint _projectileSpawnPoint = null;
 
-        [field: SerializeField]
-        public bool IsDualWeild { get; private set; } = false;
+        private int _weaponDamage = 1;
 
-        private List<ParticleSystem> _particleSystem = new List<ParticleSystem>();
+        private List<ParticleSystem> _particleSystems = new List<ParticleSystem>();
 
-        public void Setup(Transform spawnPoint, Animator animator)
+        public AudioClip Sound { get; private set; } = null;
+
+        public void SetUp(Projectile projectilePrefab, AudioClip sound, int weaponDamage)
         {
-            if (!_prefab)
-            {
-                _particleSystem.Add(spawnPoint.GetComponentInChildren<ParticleSystem>());
-            }
-            else
-            {
-                var newWeapon = Instantiate(_prefab, spawnPoint);
+            _projectilePrefab = projectilePrefab;
+            _projectileSpawnPoint = GetComponentInChildren<ProjectileSpawnPoint>();
+            Sound = sound;
 
-                if (_isMelee)
-                {
-                    newWeapon.GetComponentInChildren<Collider>().gameObject.AddComponent<MeleeWeapon>().Damage = _weaponDamage;
-                }
-                else if (!_projectilePrefab)
-                {
-                    ParticleSystem newParticleSystem = newWeapon.GetComponentInChildren<ParticleSystem>();
-                    _particleSystem.Add(newParticleSystem);
-                    var em = newParticleSystem.emission;
-                    em.rateOverTime = _firingRate;
-                }
-            }
-            
-            if (_weaponAnimations)
-            {
-                animator.runtimeAnimatorController = _weaponAnimations;
-            }
+            _weaponDamage = weaponDamage;
+
+            _particleSystems = GetComponentsInChildren<ParticleSystem>(true).ToList();
         }
 
-        public void FireWeapon(Transform spawnPoint)
+        public void FireWeapon()
         {
             if (_projectilePrefab)
             {
-                var newProjectile = Instantiate(_projectilePrefab, spawnPoint.position, Quaternion.identity);
+                var newProjectile = Instantiate(_projectilePrefab, _projectileSpawnPoint.transform);
                 newProjectile.Damage = _weaponDamage;
             }
-            else
+
+            foreach (ParticleSystem particleSystem in _particleSystems)
             {
-                foreach (ParticleSystem particleSystem in _particleSystem)
-                {
-                    particleSystem.Emit(_firingRate);
-                }
+                particleSystem.gameObject.SetActive(true);
+            }
+        }
+
+        public void StopFireWeapon()
+        {
+            foreach (ParticleSystem particleSystem in _particleSystems)
+            {
+                particleSystem.gameObject.SetActive(false);
             }
         }
     }

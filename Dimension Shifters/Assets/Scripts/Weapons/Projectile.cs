@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace DimensionShifters.Weapons
@@ -6,17 +7,16 @@ namespace DimensionShifters.Weapons
     {
         [SerializeField]
         private float _projectileSpeed = 5f;
+        [SerializeField]
+        private float _lifeTime = 5;
 
         public int Damage = 1;
 
         private void Awake()
         {
             transform.LookAt(Camera.main.transform);
-        }
-
-        private void Update()
-        {
-            transform.Translate(Vector3.forward * _projectileSpeed * Time.deltaTime);
+            GetComponent<Rigidbody>().velocity = transform.forward * _projectileSpeed;
+            Destroy(gameObject, _lifeTime);
         }
 
         private void OnTriggerEnter(Collider other)
