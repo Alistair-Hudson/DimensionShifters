@@ -19,13 +19,13 @@ namespace DimensionShifters.Weapons
             Destroy(gameObject, _lifeTime);
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision collision)
         {
-            if (other.TryGetComponent<Player.PlayerHealth>(out var player))
+            if (collision.gameObject.TryGetComponent<Player.PlayerHealth>(out var player))
             {
                 player.TakeDamage(Damage);
-                Destroy(gameObject);
             }
+            Destroy(gameObject);
         }
     }
 }
