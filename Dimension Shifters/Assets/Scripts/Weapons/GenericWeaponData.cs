@@ -25,8 +25,6 @@ namespace DimensionShifters.Weapons
         [SerializeField]
         private AnimatorOverrideController _weaponAnimations = null;
         [SerializeField]
-        private AudioClip _sound = null;
-        [SerializeField]
         private int _weaponDamage = 1;
         [SerializeField]
         private bool _isMelee = false;
@@ -49,7 +47,7 @@ namespace DimensionShifters.Weapons
             }
 
             GenericWeapon newWeapon = Instantiate(_weaponPrefab, spawnPoint);
-            newWeapon.SetUp(_projectilePrefab, _sound, _weaponDamage);
+            newWeapon.SetUp(_projectilePrefab, _weaponDamage);
             if (_isMelee)
             {
                 newWeapon.GetComponentInChildren<Collider>().gameObject.AddComponent<MeleeWeapon>().Damage = _weaponDamage;

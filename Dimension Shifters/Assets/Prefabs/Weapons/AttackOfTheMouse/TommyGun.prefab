@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2daf1717ecddb9f46b1bf2b722fee024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponSound: {fileID: 8300000, guid: bf0e861104a72854b878924b7c9de393, type: 3}
 --- !u!1001 &5923511342505053501
 PrefabInstance:
   m_ObjectHideFlags: 0

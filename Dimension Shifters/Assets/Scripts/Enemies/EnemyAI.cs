@@ -108,7 +108,6 @@ namespace DimensionShifters.Enemies
             foreach (GenericWeapon weapon in _weapons)
             {
                 weapon.FireWeapon();
-                _audioSource.PlayOneShot(weapon.Sound);
             }
         }
 

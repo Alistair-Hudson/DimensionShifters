@@ -21,6 +21,10 @@ namespace DimensionShifters.Weapons
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (collision.gameObject.TryGetComponent<Projectile>(out var projectile))
+            {
+                return;
+            }
             if (collision.gameObject.TryGetComponent<Player.PlayerHealth>(out var player))
             {
                 player.TakeDamage(Damage);

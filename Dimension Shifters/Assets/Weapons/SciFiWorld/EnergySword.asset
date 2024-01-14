@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b070427cce3eeb04486e9b3a6de29f80, type: 3}
   m_Name: EnergySword
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 6786609800761693518, guid: 59016d20a626e9a4ca20bd25b926592f, type: 3}
+  _weaponPrefab: {fileID: 4096142940451058783, guid: 59016d20a626e9a4ca20bd25b926592f, type: 3}
   _weaponAnimations: {fileID: 22100000, guid: adb2bea1c06b96748b7057426202b56f, type: 2}
-  _sound: {fileID: 0}
   _weaponDamage: 1
   _isMelee: 1
   _projectilePrefab: {fileID: 0}
   _firingRate: 1
+  <IsDualWeild>k__BackingField: 0
