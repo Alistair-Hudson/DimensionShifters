@@ -56,7 +56,7 @@ namespace DimensionShifters.UI
 
         private void Restart()
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(PlayerHealth.LevelIndex);
         }
 
         private void Exit()
