@@ -632,6 +632,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4793350049304442599, guid: 5da4ec59e2127d746862e5898e15a910, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8510d1a411a3d584f880cf2a9e718452, type: 3}
     - target: {fileID: 7043769590509767283, guid: 5da4ec59e2127d746862e5898e15a910, type: 3}
       propertyPath: m_Name
       value: XR Origin
