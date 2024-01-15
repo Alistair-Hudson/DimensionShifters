@@ -14,14 +14,21 @@ namespace DimensionShifters.Enemies
 
         private int _health = 3;
         private int _pointsValue = 10;
+        private bool _isDead = false;
 
         public static UnityEvent<int> OnEnemyDeath = new UnityEvent<int>(); 
 
         public void TakeDamage(int damage)
         {
+            if (_isDead)
+            {
+                return;
+            }
+
             _health -= damage;
             if (_health <= 0)
             {
+                _isDead = true;
                 GetComponent<Animator>().SetTrigger("Death");
                 OnEnemyDeath.Invoke(_pointsValue);
                 GetComponent<Collider>().enabled = false;
