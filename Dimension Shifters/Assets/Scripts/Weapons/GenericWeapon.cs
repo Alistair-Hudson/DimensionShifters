@@ -1,81 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace DimensionShifters.Weapons
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Weapon")]
-    public class GenericWeapon : ScriptableObject
+    [RequireComponent(typeof(AudioSource))]
+    public class GenericWeapon : MonoBehaviour
     {
-        public class MeleeWeapon : MonoBehaviour
-        {
-            public int Damage = 1;
+        [SerializeField]
+        private AudioClip weaponSound = null;
+        [SerializeField]
+        private bool isScatterShot = false;
 
-            private void OnTriggerEnter(Collider other)
-            {
-                if (other.TryGetComponent<Player.PlayerHealth>(out var player))
-                {
-                    player.TakeDamage(Damage);
-                }
-            }
-        }
-
-        [SerializeField]
-        private GameObject _prefab;
-        [SerializeField]
-        private AnimatorOverrideController _weaponAnimations = null;
-        [SerializeField]
-        private AudioClip _sound = null;
-        public AudioClip Sound { get => _sound; }
-        [SerializeField]
-        private int _weaponDamage = 1;
-        [SerializeField]
-        private bool _isMelee = false;
-        [SerializeField]
         private Projectile _projectilePrefab = null;
-        [SerializeField]
-        private int _firingRate = 1;
+        private ProjectileSpawnPoint _projectileSpawnPoint = null;
+        private AudioSource _audioSource = null;
 
-        private ParticleSystem _particleSystem = null;
+        private int _weaponDamage = 1;
 
-        public void Setup(Transform spawnPoint, Animator animator)
+        private List<ParticleSystem> _particleSystems = new List<ParticleSystem>();
+
+        public void SetUp(Projectile projectilePrefab, int weaponDamage)
         {
-            if (!_prefab)
-            {
-                _particleSystem = spawnPoint.GetComponentInChildren<ParticleSystem>();
-            }
-            else
-            {
-                var newWeapon = Instantiate(_prefab, spawnPoint);
+            _projectilePrefab = projectilePrefab;
+            _projectileSpawnPoint = GetComponentInChildren<ProjectileSpawnPoint>();
+            _audioSource = GetComponent<AudioSource>();
 
-                if (_isMelee)
-                {
-                    newWeapon.GetComponentInChildren<Collider>().gameObject.AddComponent<MeleeWeapon>().Damage = _weaponDamage;
-                }
-                else if (!_projectilePrefab)
-                {
-                    _particleSystem = newWeapon.GetComponentInChildren<ParticleSystem>();
-                    var em = _particleSystem.emission;
-                    em.rateOverTime = _firingRate;
-                }
-            }
-            
-            if (_weaponAnimations)
-            {
-                animator.runtimeAnimatorController = _weaponAnimations;
-            }
+            _weaponDamage = weaponDamage;
+
+            _particleSystems = GetComponentsInChildren<ParticleSystem>(true).ToList();
         }
 
-        public void FireWeapon(Transform spawnPoint)
+        private void SpawProjectile(Vector3 offset)
         {
+            var newProjectile = Instantiate(_projectilePrefab, _projectileSpawnPoint.transform);
+            newProjectile.transform.SetParent(null, true);
+            newProjectile.transform.position += offset;
+            newProjectile.Damage = _weaponDamage;
+        }
+
+        public void FireWeapon()
+        {
+            _audioSource.PlayOneShot(weaponSound);
             if (_projectilePrefab)
             {
-                var newProjectile = Instantiate(_projectilePrefab, spawnPoint.position, Quaternion.identity);
-                newProjectile.Damage = _weaponDamage;
+                if (isScatterShot)
+                {
+                    SpawProjectile(new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0));
+                    SpawProjectile(new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0));
+                    SpawProjectile(new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0));
+                }
+                else
+                {
+                    SpawProjectile(Vector3.zero);
+                }
             }
-            else
+
+            foreach (ParticleSystem particleSystem in _particleSystems)
             {
-                _particleSystem.Emit(_firingRate);
+                particleSystem.gameObject.SetActive(true);
+            }
+        }
+
+        public void StopFireWeapon()
+        {
+            foreach (ParticleSystem particleSystem in _particleSystems)
+            {
+                particleSystem.gameObject.SetActive(false);
             }
         }
     }

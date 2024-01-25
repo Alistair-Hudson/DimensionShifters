@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b070427cce3eeb04486e9b3a6de29f80, type: 3}
   m_Name: LaserPistol
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1614269762347075500, guid: 8c3f3874e37308a40b46eb2369301c05, type: 3}
+  _weaponPrefab: {fileID: 4007929522195332981, guid: 8c3f3874e37308a40b46eb2369301c05, type: 3}
   _weaponAnimations: {fileID: 22100000, guid: 863dfd49da8c17947a4574ed970a58ed, type: 2}
-  _sound: {fileID: 8300000, guid: 0cd8665521c932449bcb0cfacc111b49, type: 3}
   _weaponDamage: 1
   _isMelee: 0
-  _projectilePrefab: {fileID: 0}
+  _projectilePrefab: {fileID: 3475892138767447103, guid: e2b1efd840ab9ac4aa6b012ffb98f65e, type: 3}
   _firingRate: 1
+  <IsDualWeild>k__BackingField: 0

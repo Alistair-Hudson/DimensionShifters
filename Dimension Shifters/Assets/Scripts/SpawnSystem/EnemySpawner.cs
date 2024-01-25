@@ -10,12 +10,12 @@ namespace DimensionShifters.SpawnSystem
     {
         [SerializeField]
         private GameObject _warpInPrefab = null;
-
+        [SerializeField]
         private WorldEnemyList _enemyList = null;
 
         private void Awake()
         {
-            _enemyList = Resources.Load<WorldEnemyList>("WorldEnemyLists/ScifiWorld");
+            
         }
 
         private IEnumerator Start()

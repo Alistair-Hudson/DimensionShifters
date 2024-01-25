@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 060c32d73c1d8934f9a69c27c0b5b70e
   - enabled: 1
-    path: Assets/Scenes/ARScene.unity
+    path: Assets/Scenes/CyberAttack.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: db819a3f60857724bb00535c55c31d03
+  - enabled: 1
+    path: Assets/Scenes/AttackOfTheMouse.unity
+    guid: 15afa15203675db488481bba35e1b159
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 14391cf171016434cba1de6b4a4aa9c4, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 516e19d2af4ac474087d789486ae9bd5, type: 2}

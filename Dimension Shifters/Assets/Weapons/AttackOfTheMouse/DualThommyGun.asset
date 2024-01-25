@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b070427cce3eeb04486e9b3a6de29f80, type: 3}
+  m_Name: DualThommyGun
+  m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 5394668397577397967, guid: f8bb69f8edbd230418296cdf97fde940, type: 3}
+  _weaponAnimations: {fileID: 22100000, guid: a68f760e084aed54b9391938fa66a8f2, type: 2}
+  _weaponDamage: 1
+  _isMelee: 0
+  _projectilePrefab: {fileID: 3475892138767447103, guid: 4c8bf89c7db34be4e943ab834f6ec66b, type: 3}
+  _firingRate: 5
+  <IsDualWeild>k__BackingField: 1

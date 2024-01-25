@@ -15,7 +15,7 @@ namespace DimensionShifters.Enemies
         {
             public int Level;
             public EnemyAI EnemyBasePrefab;
-            public GenericWeapon Weapon;
+            public GenericWeaponData Weapon;
             public float AtackRange;
             public float MaxRunningSpeed;
             public int EnemyHealth;

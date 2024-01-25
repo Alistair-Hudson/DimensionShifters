@@ -13,6 +13,7 @@ namespace DimensionShifters.Player
 
         private float _health = 100;
 
+        public static int LevelIndex { get; private set; }
         public static UnityEvent<float> OnPlayerHealthChange = new UnityEvent<float>();
 
         private void Awake()
@@ -27,7 +28,8 @@ namespace DimensionShifters.Player
             OnPlayerHealthChange.Invoke(_health / _baseHealth);
             if (_health <= 0)
             {
-                SceneManager.LoadScene(2);
+                LevelIndex = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene("GameOverScene");
             }
         }
 

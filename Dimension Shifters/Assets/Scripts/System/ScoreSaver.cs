@@ -8,10 +8,11 @@ namespace DimensionShifters.Core
 {
     public class ScoreSaver : MonoBehaviour
     {
-        public static int Score = 0;
+        public static int Score { get; private set; }  = 0;
 
         private void Awake()
         {
+            Score = 0;
             DontDestroyOnLoad(gameObject);
             EnemyHealth.OnEnemyDeath.AddListener(UpdateScore);
         }

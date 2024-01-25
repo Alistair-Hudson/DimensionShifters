@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b070427cce3eeb04486e9b3a6de29f80, type: 3}
   m_Name: LaserRifle
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 5408426178370232253, guid: f681f177b3091ef4ba14be5fb9b58804, type: 3}
+  _weaponPrefab: {fileID: 3410417006058960889, guid: f681f177b3091ef4ba14be5fb9b58804, type: 3}
   _weaponAnimations: {fileID: 22100000, guid: 08fb4bc9c1078704ab549fe7377a532f, type: 2}
-  _sound: {fileID: 8300000, guid: 0cd8665521c932449bcb0cfacc111b49, type: 3}
   _weaponDamage: 1
   _isMelee: 0
-  _projectilePrefab: {fileID: 0}
+  _projectilePrefab: {fileID: 3475892138767447103, guid: e2b1efd840ab9ac4aa6b012ffb98f65e, type: 3}
   _firingRate: 1
+  <IsDualWeild>k__BackingField: 0

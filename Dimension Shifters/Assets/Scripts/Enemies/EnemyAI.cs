@@ -12,13 +12,15 @@ namespace DimensionShifters.Enemies
     {
         [SerializeField]
         private Transform _rightHand = null;
+        [SerializeField]
+        private Transform _leftHand = null;
 
 
         private Camera _player = null;
         private Animator _animator = null;
         private NavMeshAgent _navMesh = null;
         private AudioSource _audioSource = null;
-        private GenericWeapon _weapon = null;
+        private List<GenericWeapon> _weapons = new List<GenericWeapon>();
 
         private float _attackRange = 2f;
         private float _runningSpeed = 1f;
@@ -27,19 +29,22 @@ namespace DimensionShifters.Enemies
 
         public void Setup(WorldEnemyList.EnemyData enemyData)
         {
-            _weapon = enemyData.Weapon;
+            _player = Camera.main;
+            _animator = GetComponent<Animator>();
+            _navMesh = GetComponent<NavMeshAgent>();
+            _navMesh.speed = _runningSpeed;
+            _audioSource = GetComponent<AudioSource>();
+
+            _weapons.Add(enemyData.Weapon.Setup(_rightHand, _animator));
+            if (enemyData.Weapon.IsDualWeild)
+            {
+                _weapons.Add(enemyData.Weapon.Setup(_leftHand, _animator));
+            }
             _attackRange = enemyData.AtackRange;
             _runningSpeed = enemyData.MaxRunningSpeed;
 
             EnemyHealth enemyHealth = GetComponent<EnemyHealth>();
             enemyHealth.Setup(enemyData.EnemyHealth, enemyData.PointsValue);
-
-            _player = Camera.main;
-            _animator = GetComponent<Animator>();
-            _navMesh = GetComponent<NavMeshAgent>();
-            _navMesh.speed = _runningSpeed;
-            _weapon.Setup(_rightHand, _animator);
-            _audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -100,14 +105,19 @@ namespace DimensionShifters.Enemies
 
         public void Shoot()
         {
-            _weapon.FireWeapon(_rightHand);
-            _audioSource.PlayOneShot(_weapon.Sound);
+            foreach (GenericWeapon weapon in _weapons)
+            {
+                weapon.FireWeapon();
+            }
         }
 
         public void ResetAttack()
         {
+            foreach (GenericWeapon weapon in _weapons)
+            {
+                weapon.StopFireWeapon();
+            }
             _canAttackAgain = true;
-            
         }
     }
 }
