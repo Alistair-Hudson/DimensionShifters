@@ -16,14 +16,42 @@ MonoBehaviour:
   - Level: 1
     EnemyBasePrefab: {fileID: 6298747335607857759, guid: 3840ac2e9ca5dfb42b1f52485f9acfd8, type: 3}
     Weapon: {fileID: 11400000, guid: ca08aedcaedb07e4d922db2bad85ed87, type: 2}
-    AtackRange: 6
+    AtackRange: 4
     MaxRunningSpeed: 1
-    EnemyHealth: 3
+    EnemyHealth: 1
     PointsValue: 50
   - Level: 3
     EnemyBasePrefab: {fileID: 6298747335607857759, guid: eb6ef45f820c6454fb72a7579f1d4366, type: 3}
     Weapon: {fileID: 11400000, guid: 06ecf94a6818af64c8b30ac9ce47961d, type: 2}
     AtackRange: 3
     MaxRunningSpeed: 1
-    EnemyHealth: 3
+    EnemyHealth: 1
     PointsValue: 50
+  - Level: 5
+    EnemyBasePrefab: {fileID: 316822920673966247, guid: 6f3f760c6d897254d87baeea2c7c4822, type: 3}
+    Weapon: {fileID: 11400000, guid: ca08aedcaedb07e4d922db2bad85ed87, type: 2}
+    AtackRange: 5
+    MaxRunningSpeed: 1
+    EnemyHealth: 2
+    PointsValue: 60
+  - Level: 7
+    EnemyBasePrefab: {fileID: 8451669636771210440, guid: b2a593a4bb3dd2c478b31840a9645724, type: 3}
+    Weapon: {fileID: 11400000, guid: 06ecf94a6818af64c8b30ac9ce47961d, type: 2}
+    AtackRange: 3
+    MaxRunningSpeed: 1
+    EnemyHealth: 2
+    PointsValue: 60
+  - Level: 9
+    EnemyBasePrefab: {fileID: 4509532140746057623, guid: 78a7d0861f3c491438e030fe384886dc, type: 3}
+    Weapon: {fileID: 11400000, guid: ca08aedcaedb07e4d922db2bad85ed87, type: 2}
+    AtackRange: 5
+    MaxRunningSpeed: 1
+    EnemyHealth: 3
+    PointsValue: 75
+  - Level: 9
+    EnemyBasePrefab: {fileID: 2624116499194727632, guid: c45d8dcc4a533a84187502336306af7d, type: 3}
+    Weapon: {fileID: 11400000, guid: 06ecf94a6818af64c8b30ac9ce47961d, type: 2}
+    AtackRange: 3
+    MaxRunningSpeed: 1
+    EnemyHealth: 3
+    PointsValue: 75
